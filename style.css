@@ -1,0 +1,85 @@
+/* 全体のコンテナ */
+.main-container {
+  position: relative;
+  width: 960px;
+  height: 534px;
+  margin: 0 auto;
+}
+
+/* 画像が動くステージエリア */
+.stage-area {
+  position: relative;
+  width: 960px;
+  height: 534px;
+}
+
+/* 左上：文字エリア（透明な箱は屋根のちょっと上くらい、文字は全体的に少し小さく） */
+.text-area {
+  position: absolute;
+  top: 15px; /* 屋根のちょっと上くらいに配置するために上端を上に移動しました */
+  left: 20px;
+  z-index: 10;
+  background-color: rgba(255, 243, 240, 0.75); /* 淡いピンクベージュの半透明 */
+  padding: 12px 25px 14px 25px;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+/* 文字の大きさと色の設定（全体的に少し小さく修正） */
+.text-area h1 {
+  margin: 0 0 4px 0;
+  font-size: 24px; /* 32pxから24pxに小さくして上品にしました */
+  color: #c41261; /* 見本通りの鮮やかな濃いピンク */
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.text-area p {
+  margin: 0;
+  font-size: 24px; /* 32pxから24pxに小さく */
+  color: #c41261;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* すべての画像に共通する設定 */
+.bg, .creature, .butterfly {
+  position: absolute;
+  transition: left 0.5s ease, top 0.5s ease;
+}
+
+/* 背景画像 */
+.bg {
+  width: 960px;
+  height: 534px;
+  top: 0;
+  left: 0;
+}
+
+#back { z-index: 1; }
+
+/* 青い奴（窓の中にきれいに収まるサイズ） */
+.foo { 
+  z-index: 2; 
+  width: 45px; 
+  height: auto;
+}
+
+#front { 
+  z-index: 3; 
+  pointer-events: none; /* 手前の背景をすり抜けてマウスが反応するようにする */
+} 
+
+/* 蝶々 */
+.butterfly { 
+  z-index: 4; 
+  width: 75px; 
+  height: auto;
+}
+
+/* 外に出たときに消えるためのクラス */
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
